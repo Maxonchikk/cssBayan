@@ -1,7 +1,16 @@
 html,
 body {
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 50px;
+    font-weight: 500px;
+    color: rgb(47, 47, 214);
     background-color: beige;
+}
+
+*,
+*::after,
+*::before {
+    box-sizing: content-box;
 }
 
 .wrapper {
@@ -12,39 +21,94 @@ body {
     left: 0;
 }
 
-.wrapper-content {
+.bayan-content {
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    margin: 0px auto;
-    /* padding: 0px auto; */
+    /* justify-content: space-between; */
+    margin: 50px auto;
 }
 
-.bayan-header::after {
-    
+.bayan-content:hover {
+    color: #000;
+    transition: .5s;
+    cursor: pointer;
 }
 
-.bayan-item::before {
-    border-top: 5px solid #9e9a9a;
+.bayan-content:hover~.plus {
+    border: solid black;
+    border-width: 0 5px 5px 0;
+    display: inline-block;
+    padding: 3px;
+    margin: 0px;
+    width: 20px;
+    height: 20px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transition: .5s;
 }
 
-@media (max-width: 320px) {
-html, body {
-    font-size: 16px;
+.header {
+    color: #000;
+    margin: 0 0 50px 0;
 }
 
-    .wrapper {
-        width: 320px;
-        height: 100%;
-    }
-    
-    .wrapper-content {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin: 0px auto;
-        /* padding: 0px auto; */
-    }
+.bayan-item {
+    border-top: 3px solid #7c7878;
+    padding: 30px 0px;
+}
+
+.bayan-title {
+    position: relative;
+    display: flex;
+    /* justify-content: space-between; */
+    cursor: pointer;
+    padding: 0 0 30px 0;
+}
+
+.bayan-title:hover {
+    color: rgb(0, 0, 0);
+    transition: .5s;
+}
+
+.bayan-input {
+    appearance: none;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.plus {
+    width: 0px;
+    height: 0px;
+    margin: 0px;
+}
+
+.bayan-input:checked~.plus {
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transition: .5s;
+}
+
+.bayan-input:checked~.bayan-title {
+    color: #000
+}
+
+.bayan-input:checked~.bayan-img img {
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    transition: .3s;
+}
+
+.bayan-img img {
+    width: 0px;
+    height: 0px;
+    transition: .3s;
+}
+
+.bayan-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
