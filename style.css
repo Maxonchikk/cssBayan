@@ -1,8 +1,8 @@
 html,
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 50px;
-    font-weight: 500px;
+    font-size: calc(21px + 29 * (100vw / 1920));
+    font-weight: 700;
     color: rgb(47, 47, 214);
     background-color: beige;
 }
@@ -14,30 +14,34 @@ body {
 }
 
 .wrapper {
-    width: 1920px;
-    height: 1080px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.bayan-wrapper {
+    max-width: 80%;
     margin: 0px auto;
-    top: 0;
-    left: 0;
+    margin-top: 30px;
+}
+
+.header {
+    font-weight: 900;
+    color: #000;
+    margin: 0 0 50px 0;
 }
 
 .bayan-content {
+
     height: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: space-between; */
-    margin: 50px auto;
+    margin: 0px auto;
 }
 
 .bayan-content:hover {
     color: #000;
     transition: .5s;
     cursor: pointer;
-}
-
-.header {
-    color: #000;
-    margin: 0 0 50px 0;
 }
 
 .bayan-item {
@@ -52,21 +56,27 @@ body {
     padding: 0 0 30px 0;
 }
 
-.bayan-title::after {
+.bayan-title:after {
+    position: absolute;
     content: '';
-    display: block;
+    display: block #000;
     border: solid;
-    border-width: 0 5px 5px 0;
+    border-width: 0 0px 0px 0;
     padding: 3px;
     margin: 0px;
-    width: 20px;
-    height: 20px;
-    position: absolute;
+    width: 0px;
+    height: 0px;
     top: 20px;
     right: 15px;
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
-    transition: .5s;
+    transition: .3s;
+}
+
+.bayan-content:hover .bayan-title:after {
+    border-width: 0 5px 5px 0;
+    width: 20px;
+    height: 20px;
 }
 
 .bayan-input {
@@ -79,16 +89,25 @@ body {
 .bayan-input:checked~.bayan-title::after {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
-    transition: .5s;
+    transition: .3s;
 }
 
 .bayan-input:checked~.bayan-title {
     color: #000
 }
 
+
+
+.bayan-item:hover .bayan-img img {
+    width: 70%;
+    height: 50%;
+    margin: 0 auto;
+    transition: .3s;
+}
+
 .bayan-input:checked~.bayan-img img {
-    width: 50%;
-    height: 40%;
+    width: 70%;
+    height: 50%;
     margin: 0 auto;
     transition: .3s;
 }
@@ -103,4 +122,106 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+/*---------------------- Tablet 820px----------------------------------- */
+@media(max-width: 820px) {
+
+    html,
+    body {
+        color:#000
+    }
+
+    .bayan-item {
+        border-top: 3px solid #7c7878;
+        padding: 15px 0px;
+    }
+
+    .bayan-title {
+        padding: 0 0 10px 0;
+    }
+
+    .bayan-title::after {
+        border-width: 0 5px 5px 0;
+        width: 15px;
+        height: 15px;
+        top: 15px;
+        right: 10px;
+    }
+
+    .bayan-content:hover .bayan-title:after {
+        border-width: 0 5px 5px 0;
+        width: 15px;
+        height: 15px;
+    }
+
+    .bayan-input:checked~.bayan-title::after {
+        border-width: 0 5px 5px 0;
+        width: 15px;
+        height: 15px;
+        top: 8px;
+        right: 10px;
+        top: 1px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transition: .3s;
+    }
+}
+
+/*---------------------- Mobile 320px----------------------------------- */
+@media(max-width: 320px) {
+
+    html,
+    body {
+        font-size: calc(21px + (29 + 29 * 0.7) * ((100vw - 320px) / 1920));
+        color:#000
+    }
+
+    .bayan-wrapper {
+        margin-top: 10px;
+    }
+
+    .header {
+        margin: 0 0 10px 0;
+    }
+
+    .bayan-item {
+        border-top: 1px solid #7c7878;
+        padding: 10px 0px;
+    }
+
+    .bayan-title {
+        padding: 0 0 10px 0;
+    }
+
+    .bayan-title::after {
+        border-width: 0 3px 3px 0;
+        width: 5px;
+        height: 5px;
+        top: 8px;
+        right: 10px;
+    }
+
+    .bayan-content:hover .bayan-title:after {
+        border-width: 0 3px 3px 0;
+        width: 5px;
+        height: 5px;
+    }
+
+    .bayan-input:checked~.bayan-title::after {
+        border-width: 0 3px 3px 0;
+        width: 5px;
+        height: 5px;
+        top: 8px;
+        right: 10px;
+        top: 2.5px;
+        transform: rotate(45deg);
+        -webkit-transform: rotate(45deg);
+        transition: .3s;
+    }
+
+    .bayan-input:checked~.bayan-img img {
+        width: 90%;
+        height: 80%;
+    }
 }
